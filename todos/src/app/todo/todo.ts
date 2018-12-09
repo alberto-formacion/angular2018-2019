@@ -1,4 +1,4 @@
-export class Todo{
+export class Todo {
 
     /*public tarea: string;
 
@@ -7,7 +7,9 @@ export class Todo{
     }*/
 
     constructor(
-        public tarea:string
-    ){}
+        public tarea: string,
+        public importante: boolean,
+        public terminado: boolean
+    ) {}
 
 }

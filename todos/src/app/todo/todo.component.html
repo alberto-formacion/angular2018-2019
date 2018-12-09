@@ -1,11 +1,24 @@
 <div>
   <input type="text" [(ngModel)]="todo.tarea">
+  <input type="checkbox" [(ngModel)]="todo.importante">
   <button (click)="addTodo()">Crear Tarea</button>
 </div>
 <div>
+  <h2>Tareas Pendientes</h2>
   <ul>
-    <li *ngFor="let todo of todos">
-      {{todo.tarea}}
+    <li *ngFor="let todo of todos | priorizarTodoPipe"
+      (click)="cambiarEstado(todo)"
+      [ngClass]="setTodoClasses(todo)">
+        {{todo.tarea}}
+    </li>
+  </ul>
+  <hr *ngIf="(todos | todosHechosPipe).length > 0"/>
+  <h2>Tareas Finalizadas</h2>
+  <ul>
+    <li *ngFor="let todo of todos | todosHechosPipe"
+      (click)="cambiarEstado(todo)"
+      [ngClass]="setTodoClasses(todo)">
+        {{todo.tarea}}
     </li>
   </ul>
 </div>
