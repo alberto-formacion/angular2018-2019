@@ -7,7 +7,9 @@ export class Todo{
     }*/
 
     constructor(
-        public tarea:string
+        public tarea:string,
+        public importante: boolean,
+        public terminado: boolean
     ){}
 
 }
